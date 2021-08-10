@@ -1,0 +1,92 @@
+{% load static %}
+
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <a href="{% url 'admin_home' %}" class="brand-link">
+        <img src="{% static 'dist/img/AdminLTELogo.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+            style="opacity: .8">
+        <span class="brand-text font-weight-light">SoftTec Innovation</span>
+      </a>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="{% static 'dist/img/user2-160x160.jpg' %}" class="img-circle elevation-2" alt="User Image">
+          </div>
+          <div class="info">
+            <a href="{% url 'superadmin_profile' %}" class="d-block">{{ user.first_name }} {{ user.last_name }}</a>
+          </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
+
+            <li class="nav-item">
+              {% url 'admin_home' as admin_home %}
+              <a href="{{ admin_home }}" class="nav-link {% if request.path == admin_home %} active {% endif %}">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  Home
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              {% url 'manage_sacco_admin' as manage_sacco_admin %}
+              <a href="{{ manage_sacco_admin }}" class="nav-link {% if request.path == manage_sacco_admin %} active {% endif %}">
+                <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                <p>Manage Admins</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              {% url 'add_sacco_admin' as add_sacco_admin %}
+              <a href="{{ add_sacco_admin }}" class="nav-link {% if request.path == add_sacco_admin %} active {% endif %}">
+                <i class="nav-icon fas fa-th"></i>
+                <p>Add Admins</p>
+              </a>
+            </li>
+
+            <!-- <li class="nav-item">
+              {% url 'manage_members' as manage_members %}
+              <a href="{{ manage_members}}" class="nav-link {% if request.path == manage_members %} active {% endif %}">
+                <i class="nav-icon fas fa-user-graduate"></i>
+                <p>Manage Members</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              {% url 'add_member' as add_member %}
+              <a href="{{ add_member}}" class="nav-link {% if request.path == add_member %} active {% endif %}">
+                <i class="nav-icon fas fa-th"></i>
+                <p>Add Members</p>
+              </a>
+            </li> -->
+
+            <li class="nav-item">
+              {% url 'manage_saccos' as manage_saccos %}
+              <a href="{{ manage_saccos }}" class="nav-link {% if request.path == manage_saccos %} active {% endif %}">
+                <i class="nav-icon fas fa-chalkboard"></i>
+                <p>Manage Saccos</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              {% url 'add_sacco' as add_sacco %}
+              <a href="{{ add_sacco }}" class="nav-link {% if request.path == add_sacco %} active {% endif %}">
+                <i class="nav-icon fas fa-th"></i>
+                <p>Add Sacco</p>
+              </a>
+            </li>
+
+
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
